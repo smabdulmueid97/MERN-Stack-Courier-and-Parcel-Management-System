@@ -37,7 +37,9 @@ const AdminDashboard = () => {
     };
     fetchData();
 
-    const socket = io("http://localhost:5001");
+    const socket = io(
+      process.env.REACT_APP_API_URL || "http://localhost:5001"
+    );
     socket.on("new_booking", (newParcel) => {
       setParcels((prev) => [newParcel, ...prev]);
       api.get("/admin/dashboard").then((res) => setMetrics(res.data));
