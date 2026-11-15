@@ -31,7 +31,9 @@ const CustomerDashboard = () => {
 
   useEffect(() => {
     fetchHistory();
-    const socket = io("http://localhost:5001");
+    const socket = io(
+      process.env.REACT_APP_API_URL || "http://localhost:5001"
+    );
     socket.on("status_update", (data) => {
       setParcels((prev) =>
         prev.map((p) =>
