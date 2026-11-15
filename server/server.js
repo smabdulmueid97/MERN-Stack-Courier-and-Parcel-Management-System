@@ -22,7 +22,9 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Your React app's origin
+    // Set CLIENT_URL on the host to the deployed Vercel origin
+    // (e.g. https://<project>.vercel.app). Falls back to local dev.
+    origin: process.env.CLIENT_URL || "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
