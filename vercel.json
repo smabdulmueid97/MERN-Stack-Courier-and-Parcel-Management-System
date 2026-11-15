@@ -1,0 +1,1 @@
+{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"npm run build --prefix client","framework":"create-react-app","installCommand":"npm install --prefix client","outputDirectory":"client/build","rewrites":[{"destination":"/index.html","source":"/(.*)"}]}
